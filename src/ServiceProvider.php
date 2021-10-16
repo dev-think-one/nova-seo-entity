@@ -34,9 +34,5 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             [ SEOInfo::$thinkSeoImgDriver => $config->get('nova-seo-entity.seo_image', []), ],
             $config->get('simple-image-manager.drivers', [])
         ));
-
-        $this->app->bind('nova-seo-entity', function ($app) {
-            return new NovaSeoEntity($app);
-        });
     }
 }

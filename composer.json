@@ -51,10 +51,7 @@
         "laravel": {
             "providers": [
                 "NovaSeoEntity\\ServiceProvider"
-            ],
-            "aliases": {
-                "NovaSeoEntity": "NovaSeoEntity\\Facades\\NovaSeoEntity"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",

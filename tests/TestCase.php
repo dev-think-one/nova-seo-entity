@@ -2,8 +2,24 @@
 
 namespace NovaSeoEntity\Tests;
 
+use Illuminate\Support\Facades\File;
+
 class TestCase extends \Orchestra\Testbench\TestCase
 {
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        array_map('unlink', glob(__DIR__ . '/../vendor/orchestra/testbench-core/laravel/database/migrations/*.php'));
+        // $this->artisan( 'vendor:publish', [ '--tag' => 'migrations', '--force' => true ] );
+        array_map(function ($f) {
+            File::copy($f, __DIR__ . '/../vendor/orchestra/testbench-core/laravel/database/migrations/' . basename($f));
+        }, glob(__DIR__ . '/Fixtures/migrations/*.php'));
+
+
+        $this->artisan('migrate', [ '--database' => 'testbench' ]);
+    }
+
     protected function getPackageProviders($app)
     {
         return [

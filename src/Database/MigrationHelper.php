@@ -14,11 +14,14 @@ class MigrationHelper
         $table->string('description')->nullable();
         $table->string('canonical')->nullable();
         $table->string('image')->nullable();
-        $table->json('meta')->nullable();
-        $table->json('open_graph')->nullable();
-        $table->json('twitter_card')->nullable();
-        $table->json('json_ld')->nullable();
-        $table->json('json_ld_multi')->nullable();
+
+        // Future implementation
+        // $table->json('meta')->nullable();
+        // $table->json('open_graph')->nullable();
+        // $table->json('twitter_card')->nullable();
+        // $table->json('json_ld')->nullable();
+        // $table->json('json_ld_multi')->nullable();
+
         $table->timestamps();
     }
 }

@@ -24,6 +24,11 @@ trait HasSeoEntity
      */
     public function getNewInstanceSeoValueFor(string $key): mixed
     {
+        $method = 'getNewInstanceSeoValueFor' . Str::ucfirst(Str::camel($key));
+        if (method_exists($this, $method)) {
+            return $this->$method();
+        }
+
         if (method_exists($this, 'getAttribute')) {
             return $this->getAttribute($key);
         }
