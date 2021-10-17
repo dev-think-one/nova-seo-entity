@@ -14,10 +14,14 @@ You can install the package via composer:
 
 ```bash
 composer require yaroslawww/nova-seo-entity
+
 # optional publish configs
 php artisan vendor:publish --provider="NovaSeoEntity\ServiceProvider" --tag="config"
 # as current package wrap "artesaos/seotools" package, will be useful publish internal config:
 php artisan vendor:publish --provider="Artesaos\SEOTools\Providers\SEOToolsServiceProvider"
+
+# publish translations
+php artisan vendor:publish --provider="NovaSeoEntity\ServiceProvider" --tag="lang"
 ```
 
 ## Usage
@@ -52,6 +56,21 @@ class Article extends Model extends WithSeoEntity
 {
     use HasSeoEntity;
     // ...
+    
+    /**
+     * Example how set default value for nova "creation" screen
+     */
+    public function getNewInstanceSeoValueForDescription( ): ?string {
+        return Str::limit( WysiwygHelper::html2Text( $this->content ), 150 );
+    }
+    
+    /**
+     * Override canonical value if not set
+     */
+    public function getSEOCanonicalFieldValue( mixed $value ): mixed {
+        return $value ?: ($this->slug ? route( 'front.article.single', $this->slug ) : null);
+    }
+
 }
 ```
 

@@ -13,11 +13,17 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
                 __DIR__ . '/../config/nova-seo-entity.php' => config_path('nova-seo-entity.php'),
             ], 'config');
 
+            $this->publishes([
+                __DIR__.'/../resources/lang' => resource_path('lang/vendor/nova-seo-entity'),
+            ], 'lang');
+
 
             $this->commands([
                 //
             ]);
         }
+
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'nova-seo-entity');
     }
 
     /**

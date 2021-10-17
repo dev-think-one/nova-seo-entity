@@ -16,7 +16,7 @@ use Laravel\Nova\Panel;
 use Laravel\Nova\Resource as NovaResource;
 use NovaSeoEntity\Models\SEOInfo as SEOInfoModel;
 
-/** @psalm-suppress UndefinedClass **/
+/** @psalm-suppress UndefinedClass * */
 class SEOInfo extends NovaResource
 {
     /**
@@ -106,11 +106,12 @@ class SEOInfo extends NovaResource
         return [
             ID::make()->sortable(),
 
-            MorphTo::make('SEOptimisable', 'seoptimisable')
-                   ->types($types = $this->getMorphToTypes())
-                   ->searchable(),
+            MorphTo::make(trans('nova-seo-entity::resource.fields.seoptimisable'), 'seoptimisable')
+                   ->types($this->getMorphToTypes())
+                   ->searchable()
+                   ->help(trans('nova-seo-entity::resource.help.seoptimisable')),
 
-            new Panel('General information', $this->generalInformationFields($request)),
+            new Panel(trans('nova-seo-entity::resource.panels.general'), $this->generalInformationFields($request)),
         ];
     }
 
@@ -157,25 +158,25 @@ class SEOInfo extends NovaResource
     protected function generalInformationFields(Request $request): array
     {
         return [
-            Text::make('Title', 'title')
+            Text::make(trans('nova-seo-entity::resource.fields.title'), 'title')
                 ->rules('nullable', 'string', 'max:255')
                 ->default($this->getDefaultSeoValueFor($request, 'title'))
-                ->help('Optimal size up to about 50–60 characters.')
+                ->help(trans('nova-seo-entity::resource.help.title'))
                 ->hideFromIndex(),
 
-            Textarea::make('Description', 'description')
+            Textarea::make(trans('nova-seo-entity::resource.fields.description'), 'description')
                     ->rules('nullable', 'string', 'max:255')
                     ->default($this->getDefaultSeoValueFor($request, 'description'))
-                    ->help('Optimal size up to about 155 characters.')
+                    ->help(trans('nova-seo-entity::resource.help.description'))
                     ->hideFromIndex(),
 
-            Text::make('Canonical', 'canonical')
+            Text::make(trans('nova-seo-entity::resource.fields.canonical'), 'canonical')
                 ->rules('nullable', 'string', 'max:255')
                 ->default($this->getDefaultSeoValueFor($request, 'canonical'))
-                ->help('If link not starts with "http" than app url will be added automatically')
+                ->help(trans('nova-seo-entity::resource.help.canonical'))
                 ->hideFromIndex(),
 
-            Image::make('Image', 'image')
+            Image::make(trans('nova-seo-entity::resource.fields.image'), 'image')
                  ->store(function ($request, SEOInfoModel $model, $attribute, $requestAttribute, $storageDisk, $storageDir) {
                      return function () use ($request, $model, $attribute, $requestAttribute, $storageDisk, $storageDir) {
                          $model->$attribute = $model->seoImage()
@@ -191,7 +192,7 @@ class SEOInfo extends NovaResource
                  ->preview(fn ($value, $storageDisk, SEOInfoModel $model) => $model->seoImage()->url('thumbnail'))
                  ->thumbnail(fn ($value, $storageDisk, SEOInfoModel $model) => $model->seoImage()->url('thumbnail'))
                  ->delete(fn ($request, SEOInfoModel $model, $storageDisk, $storagePath) => $model->seoImage()->delete())
-                 ->help('Please use image: 2400x1200 or 1200x(>=628) (All required images will be cropped)'),
+                ->help(trans('nova-seo-entity::resource.help.image')),
 
             // image
             // meta
