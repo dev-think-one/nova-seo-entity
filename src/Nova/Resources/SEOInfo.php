@@ -38,7 +38,7 @@ class SEOInfo extends NovaResource
      */
     public static function label()
     {
-        return 'SEO';
+        return trans('nova-seo-entity::resource.label');
     }
 
     /**

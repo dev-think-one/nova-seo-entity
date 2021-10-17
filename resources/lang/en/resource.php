@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'label'  => 'SEO',
     'panels' => [
         'general' => 'General information',
     ],
