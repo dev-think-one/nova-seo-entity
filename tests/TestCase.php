@@ -2,24 +2,10 @@
 
 namespace NovaSeoEntity\Tests;
 
-use Illuminate\Support\Facades\File;
+use Orchestra\Testbench\Database\MigrateProcessor;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        array_map('unlink', glob(__DIR__ . '/../vendor/orchestra/testbench-core/laravel/database/migrations/*.php'));
-        // $this->artisan( 'vendor:publish', [ '--tag' => 'migrations', '--force' => true ] );
-        array_map(function ($f) {
-            File::copy($f, __DIR__ . '/../vendor/orchestra/testbench-core/laravel/database/migrations/' . basename($f));
-        }, glob(__DIR__ . '/Fixtures/migrations/*.php'));
-
-
-        $this->artisan('migrate', [ '--database' => 'testbench' ]);
-    }
-
     protected function getPackageProviders($app)
     {
         return [
@@ -27,8 +13,15 @@ class TestCase extends \Orchestra\Testbench\TestCase
         ];
     }
 
-    public function defineEnvironment($app)
+    protected function defineDatabaseMigrations()
     {
+        $this->loadLaravelMigrations();
+
+        $migrator = new MigrateProcessor($this, [
+            '--path'     => __DIR__.'/Fixtures/migrations',
+            '--realpath' => true,
+        ]);
+        $migrator->up();
     }
 
     /**
@@ -40,8 +33,6 @@ class TestCase extends \Orchestra\Testbench\TestCase
      */
     protected function getEnvironmentSetUp($app)
     {
-        parent::getEnvironmentSetUp($app);
-
         // Setup default database to use sqlite :memory:
         $app['config']->set('database.default', 'testbench');
         $app['config']->set('database.connections.testbench', [

@@ -1,7 +1,8 @@
 # Laravel nova SEO Entity relationship
 
-[![Packagist License](https://img.shields.io/packagist/l/yaroslawww/nova-seo-entity?color=%234dc71f)](https://github.com/yaroslawww/nova-seo-entity/blob/master/LICENSE.md)
+![Packagist License](https://img.shields.io/packagist/l/yaroslawww/nova-seo-entity?color=%234dc71f)
 [![Packagist Version](https://img.shields.io/packagist/v/yaroslawww/nova-seo-entity)](https://packagist.org/packages/yaroslawww/nova-seo-entity)
+[![Total Downloads](https://img.shields.io/packagist/dt/yaroslawww/nova-seo-entity)](https://packagist.org/packages/yaroslawww/nova-seo-entity)
 [![Build Status](https://scrutinizer-ci.com/g/yaroslawww/nova-seo-entity/badges/build.png?b=master)](https://scrutinizer-ci.com/g/yaroslawww/nova-seo-entity/build-status/master)
 [![Code Coverage](https://scrutinizer-ci.com/g/yaroslawww/nova-seo-entity/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/yaroslawww/nova-seo-entity/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/yaroslawww/nova-seo-entity/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/yaroslawww/nova-seo-entity/?branch=master)
