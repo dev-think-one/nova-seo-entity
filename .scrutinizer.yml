@@ -4,6 +4,7 @@ filter:
 build:
   nodes:
     tests-with-coverage:
+      image: default-bionic
       environment:
         php:
           version: 8.1
