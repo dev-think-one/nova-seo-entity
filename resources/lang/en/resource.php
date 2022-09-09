@@ -18,7 +18,7 @@ return [
     ],
     'help'   => [
         'seoptimisable'  => 'Related entity',
-        'robots'         => 'Id empty, no tag will be present.',
+        'robots'         => 'If empty, the tag will not be present.',
         'title'          => 'Optimal size up to about 50–60 characters.',
         'description'    => 'Optimal size up to about 155 characters.',
         'canonical'      => 'If link not starts with "http" than app url will be added automatically',
