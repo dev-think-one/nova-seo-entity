@@ -10,6 +10,6 @@ System now has support `robots` tag. Because of this change, you must add a `rob
 
 ```php
 Schema::table(config('nova-seo-entity.table'), function (Blueprint $table) {
-    $table->string('robots')->after('seoptimisable')->nullable();
+    $table->string('robots')->after('seoptimisable_id')->nullable();
 });
 ```
