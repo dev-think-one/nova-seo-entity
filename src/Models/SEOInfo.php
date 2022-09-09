@@ -2,6 +2,7 @@
 
 namespace NovaSeoEntity\Models;
 
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Database\Eloquent\Model;
 use NovaSeoEntity\Contracts\WithSeoEntity;
@@ -71,11 +72,15 @@ class SEOInfo extends Model
         /** @var $model WithSeoEntity|null */
         $model = ($this->seoptimisable instanceof WithSeoEntity) ? $this->seoptimisable : null;
 
+        if ($value = $model?->getSEOFieldValue('robots', $this->robots) ?? $this->robots) {
+            SEOMeta::setRobots($value);
+        }
+
         if ($value = $model?->getSEOFieldValue('title', $this->title) ?? $this->title) {
             SEOTools::setTitle($value);
         }
 
-        if ($value = $model?->getSEOFieldValue('canonical', $this->description) ?? $this->description) {
+        if ($value = $model?->getSEOFieldValue('description', $this->description) ?? $this->description) {
             SEOTools::setDescription($value);
         }
 

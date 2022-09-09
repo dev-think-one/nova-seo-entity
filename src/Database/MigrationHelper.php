@@ -10,6 +10,7 @@ class MigrationHelper
     {
         $table->id();
         $table->morphs('seoptimisable');
+        $table->string('robots')->nullable();
         $table->string('title')->nullable();
         $table->string('description')->nullable();
         $table->string('canonical')->nullable();

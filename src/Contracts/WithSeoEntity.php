@@ -4,7 +4,6 @@ namespace NovaSeoEntity\Contracts;
 
 interface WithSeoEntity
 {
-
     /**
      * Get seo information relationship.
      */

@@ -16,9 +16,15 @@
             "role": "Developer"
         }
     ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
     "require": {
         "php": "^8.1",
-        "illuminate/support": "^9.0",
+        "laravel/nova": "^4.0",
         "artesaos/seotools": "^0.22",
         "yaroslawww/laravel-simple-image-manager": "^3.0"
     },

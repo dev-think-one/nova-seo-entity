@@ -11,8 +11,8 @@ Add to any model relation with SEO data.
 
 | Nova | Package |
 |------|---------|
-| V1   | V1 V2   |
-| V4   | V3      |
+| V1   | V1,V2   |
+| V4   | V3,V4   |
 
 ## Installation
 

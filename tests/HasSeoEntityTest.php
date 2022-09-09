@@ -19,16 +19,18 @@ class HasSeoEntityTest extends TestCase
         $this->assertNull($post->seo_info);
 
         $data = [
-            'title'       => 'Test title',
-            'description' => 'Test description',
-            'canonical'   => 'test-canonical',
-            'image'       => 'test-image',
+            'robots'       => 'nofoo,nobar',
+            'title'        => 'Test title',
+            'description'  => 'Test description',
+            'canonical'    => 'test-canonical',
+            'image'        => 'test-image',
         ];
 
         $post->seo_info()->create($data);
 
         $post->refresh();
 
+        $this->assertEquals($data['robots'], $post->seo_info->robots);
         $this->assertEquals($data['title'], $post->seo_info->title);
         $this->assertEquals($data['description'], $post->seo_info->description);
         $this->assertEquals($data['canonical'], $post->seo_info->canonical);

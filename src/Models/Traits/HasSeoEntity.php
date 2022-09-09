@@ -6,7 +6,6 @@ use Illuminate\Support\Str;
 
 trait HasSeoEntity
 {
-
     /**
      * Get seo information relationship.
      */

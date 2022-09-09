@@ -2,7 +2,6 @@
 
 namespace NovaSeoEntity\Nova\Resources;
 
-use App\Nova\Resource;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -162,18 +161,21 @@ class SEOInfo extends NovaResource
                 ->rules('nullable', 'string', 'max:255')
                 ->default($this->getDefaultSeoValueFor($request, 'title'))
                 ->help(trans('nova-seo-entity::resource.help.title'))
+                ->showOnPreview()
                 ->hideFromIndex(),
 
             Textarea::make(trans('nova-seo-entity::resource.fields.description'), 'description')
                     ->rules('nullable', 'string', 'max:255')
                     ->default($this->getDefaultSeoValueFor($request, 'description'))
                     ->help(trans('nova-seo-entity::resource.help.description'))
+                    ->showOnPreview()
                     ->hideFromIndex(),
 
             Text::make(trans('nova-seo-entity::resource.fields.canonical'), 'canonical')
                 ->rules('nullable', 'string', 'max:255')
                 ->default($this->getDefaultSeoValueFor($request, 'canonical'))
                 ->help(trans('nova-seo-entity::resource.help.canonical'))
+                ->showOnPreview()
                 ->hideFromIndex(),
 
             Image::make(trans('nova-seo-entity::resource.fields.image'), 'image')
@@ -192,7 +194,15 @@ class SEOInfo extends NovaResource
                  ->preview(fn ($value, $storageDisk, SEOInfoModel $model) => $model->seoImage()->url('thumbnail'))
                  ->thumbnail(fn ($value, $storageDisk, SEOInfoModel $model) => $model->seoImage()->url('thumbnail'))
                  ->delete(fn ($request, SEOInfoModel $model, $storageDisk, $storagePath) => $model->seoImage()->delete())
-                ->help(trans('nova-seo-entity::resource.help.image')),
+                 ->help(trans('nova-seo-entity::resource.help.image')),
+
+            Text::make(trans('nova-seo-entity::resource.fields.robots'), 'robots')
+                ->rules('nullable', 'string', 'max:255')
+                ->default($this->getDefaultSeoValueFor($request, 'robots'))
+                ->placeholder(trans('nova-seo-entity::resource.help.robots'))
+                ->help(trans('nova-seo-entity::resource.help.robots'))
+                ->showOnPreview()
+                ->hideFromIndex(),
 
             // image
             // meta
