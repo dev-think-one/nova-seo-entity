@@ -15,6 +15,14 @@ trait HasSeoEntity
     }
 
     /**
+     * Get seo information relationship with default value.
+     */
+    public function seo_info_forced(): \Illuminate\Database\Eloquent\Relations\MorphOne
+    {
+        return $this->morphOne(\NovaSeoEntity\Models\SEOInfo::class, 'seoptimisable')->withDefault();
+    }
+
+    /**
      * Get default value.
      *
      * @param string $key
