@@ -19,7 +19,11 @@ trait HasSeoEntity
      */
     public function seo_info_forced(): \Illuminate\Database\Eloquent\Relations\MorphOne
     {
-        return $this->morphOne(\NovaSeoEntity\Models\SEOInfo::class, 'seoptimisable')->withDefault();
+        return $this->morphOne(\NovaSeoEntity\Models\SEOInfo::class, 'seoptimisable')
+                    ->withDefault([
+                        'seoptimisable_type' => $this->getMorphClass(),
+                        'seoptimisable_id'   => $this->getKey(),
+                    ]);
     }
 
     /**
