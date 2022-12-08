@@ -26,7 +26,7 @@
         "php": "^8.1",
         "laravel/nova": "^4.13",
         "artesaos/seotools": "^0.22",
-        "yaroslawww/laravel-simple-image-manager": "^3.0"
+        "yaroslawww/laravel-simple-image-manager": "^3.2"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.11",
