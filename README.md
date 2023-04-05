@@ -118,6 +118,17 @@ protected function resources() {
 }
 ```
 
+### Add related filesystem disk (or change default disc in config file)
+
+```php
+'cms-images'  => [
+    'driver'     => 'local',
+    'root'       => storage_path('app/public/cms-images'),
+    'url'        => env('APP_URL').'/storage/cms-images',
+    'visibility' => 'public',
+],
+```
+
 ### Display meta data
 
 ```html
@@ -125,6 +136,15 @@ protected function resources() {
 <head>
     {!! \Artesaos\SEOTools\Facades\SEOTools::generate(!config('app.debug')) !!}
 </head>
+```
+
+### Implement
+
+```php
+$article = Article::find($articleId);
+
+$article?->seo_info_forced?->seoPrepare();
+// $article?->seo_info?->seoPrepare();
 ```
 
 ## Useful links
