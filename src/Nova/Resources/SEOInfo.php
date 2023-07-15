@@ -15,7 +15,9 @@ use Laravel\Nova\Panel;
 use Laravel\Nova\Resource as NovaResource;
 use NovaSeoEntity\Models\SEOInfo as SEOInfoModel;
 
-/** @psalm-suppress UndefinedClass * */
+/**
+ * @extends NovaResource<SEOInfoModel>
+ */
 class SEOInfo extends NovaResource
 {
     /**

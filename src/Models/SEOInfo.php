@@ -34,7 +34,7 @@ class SEOInfo extends Model
     /**
      * @inheritDoc
      */
-    public function getTable()
+    public function getTable(): string
     {
         return config('nova-seo-entity.table', parent::getTable());
     }
