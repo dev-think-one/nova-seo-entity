@@ -1,17 +1,17 @@
 {
-    "name": "yaroslawww/nova-seo-entity",
+    "name": "think.studio/nova-seo-entity",
     "description": "Related entity to manage SEO data.",
     "keywords": [
         "laravel",
         "nova",
         "seo"
     ],
-    "homepage": "https://github.com/yaroslawww/nova-seo-entity",
+    "homepage": "https://github.com/dev-think-one/nova-seo-entity",
     "license": "MIT",
     "authors": [
         {
             "name": "Yaroslav Georgitsa",
-            "email": "yaroslav.georgitsa@gmail.com",
+            "email": "yg@think.studio",
             "homepage": "https://github.com/yaroslawww",
             "role": "Developer"
         }

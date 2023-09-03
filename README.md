@@ -1,11 +1,11 @@
 # Laravel nova SEO Entity relationship
 
-![Packagist License](https://img.shields.io/packagist/l/yaroslawww/nova-seo-entity?color=%234dc71f)
-[![Packagist Version](https://img.shields.io/packagist/v/yaroslawww/nova-seo-entity)](https://packagist.org/packages/yaroslawww/nova-seo-entity)
-[![Total Downloads](https://img.shields.io/packagist/dt/yaroslawww/nova-seo-entity)](https://packagist.org/packages/yaroslawww/nova-seo-entity)
-[![Build Status](https://scrutinizer-ci.com/g/yaroslawww/nova-seo-entity/badges/build.png?b=master)](https://scrutinizer-ci.com/g/yaroslawww/nova-seo-entity/build-status/master)
-[![Code Coverage](https://scrutinizer-ci.com/g/yaroslawww/nova-seo-entity/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/yaroslawww/nova-seo-entity/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/yaroslawww/nova-seo-entity/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/yaroslawww/nova-seo-entity/?branch=master)
+![Packagist License](https://img.shields.io/packagist/l/think.studio/nova-seo-entity?color=%234dc71f)
+[![Packagist Version](https://img.shields.io/packagist/v/think.studio/nova-seo-entity)](https://packagist.org/packages/think.studio/nova-seo-entity)
+[![Total Downloads](https://img.shields.io/packagist/dt/think.studio/nova-seo-entity)](https://packagist.org/packages/think.studio/nova-seo-entity)
+[![Build Status](https://scrutinizer-ci.com/g/dev-think-one/nova-seo-entity/badges/build.png?b=main)](https://scrutinizer-ci.com/g/dev-think-one/nova-seo-entity/build-status/main)
+[![Code Coverage](https://scrutinizer-ci.com/g/dev-think-one/nova-seo-entity/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/dev-think-one/nova-seo-entity/?branch=main)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dev-think-one/nova-seo-entity/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/dev-think-one/nova-seo-entity/?branch=main)
 
 Add to any model relation with SEO data.
 
@@ -19,7 +19,7 @@ Add to any model relation with SEO data.
 You can install the package via composer:
 
 ```bash
-composer require yaroslawww/nova-seo-entity
+composer require think.studio/nova-seo-entity
 
 # optional publish configs
 php artisan vendor:publish --provider="NovaSeoEntity\ServiceProvider" --tag="config"
