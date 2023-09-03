@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaSeoEntity\Tests\Models;
+namespace NovaSeoEntity\Tests\Fixtures\Models;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

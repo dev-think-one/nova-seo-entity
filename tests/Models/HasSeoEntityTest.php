@@ -2,6 +2,7 @@
 
 namespace NovaSeoEntity\Tests\Models;
 
+use NovaSeoEntity\Models\SEOInfo;
 use NovaSeoEntity\Tests\Fixtures\Models\Post;
 use NovaSeoEntity\Tests\Fixtures\Models\PostNotModel;
 use NovaSeoEntity\Tests\TestCase;
@@ -71,5 +72,15 @@ class HasSeoEntityTest extends TestCase
         $this->assertEquals('Test title', $post->getSEOFieldValue('title', $post->seo_info->title));
         $this->assertEquals($post->getSEODescriptionFieldValue($post->seo_info->description), $post->getSEOFieldValue('description', $post->seo_info->description));
         $this->assertNull($post->getSEOFieldValue('canonical', $post->seo_info->canonical));
+    }
+
+    /** @test */
+    public function default_relation()
+    {
+        /** @var Post $post */
+        $post = Post::factory()->create();
+
+        $this->assertNotNull($post->seo_info_forced);
+        $this->assertInstanceOf(SEOInfo::class, $post->seo_info_forced);
     }
 }

@@ -4,7 +4,7 @@ namespace NovaSeoEntity\Tests\Nova;
 
 use Illuminate\Http\UploadedFile;
 use NovaSeoEntity\Tests\Fixtures\Models\Post;
-use NovaSeoEntity\Tests\Models\User;
+use NovaSeoEntity\Tests\Fixtures\Models\User;
 use NovaSeoEntity\Tests\TestCase;
 
 class MorphableResourceTest extends TestCase

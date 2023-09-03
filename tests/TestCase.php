@@ -29,6 +29,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
             NovaCoreServiceProvider::class,
             NovaServiceProvider::class,
             \SimpleImageManager\ServiceProvider::class,
+            \Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
             \NovaSeoEntity\ServiceProvider::class,
         ];
     }
