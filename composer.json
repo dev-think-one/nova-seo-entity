@@ -26,10 +26,10 @@
         "php": "^8.1",
         "laravel/nova": "^4.13",
         "artesaos/seotools": "^1.0",
-        "think.studio/laravel-simple-image-manager": "^3.3"
+        "think.studio/laravel-simple-image-manager": "^3.4"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.20",
+        "friendsofphp/php-cs-fixer": "^3.21",
         "orchestra/testbench": "^8.5",
         "phpunit/phpunit": "^10.2",
         "psalm/plugin-laravel": "^2.8",
@@ -47,8 +47,8 @@
     },
     "scripts": {
         "psalm": "vendor/bin/psalm",
-        "test": "XDEBUG_MODE=coverage vendor/bin/phpunit",
-        "test-coverage": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-html coverage",
+        "test": "XDEBUG_MODE=coverage vendor/bin/phpunit --colors=always",
+        "test-coverage": "XDEBUG_MODE=coverage vendor/bin/phpunit --colors=always --coverage-html coverage",
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
     },
     "config": {

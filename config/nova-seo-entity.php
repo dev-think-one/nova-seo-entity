@@ -26,12 +26,12 @@ return [
     |--------------------------------------------------------------------------
     | Seo image crop configuration
     |--------------------------------------------------------------------------
-    | See https://github.com/yaroslawww/laravel-simple-image-manager
+    | See https://github.com/think.studio/laravel-simple-image-manager
     */
     'seo_image' => [
     'disk'                 => 'cms-images',
-    'immutable_extensions' => [ '.svg' ],
-    'prefix'               => 'seo-image' . '/',
+    'immutable_extensions' => [ '.svg', '.gif' ],
+    'prefix'               => 'seo-image' . DIRECTORY_SEPARATOR,
     'original'             => [
         'methods' => [
             'fit'      => [ \Spatie\Image\Manipulations::FIT_MAX, 2400, 1200 ],

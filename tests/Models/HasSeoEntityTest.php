@@ -1,20 +1,18 @@
 <?php
 
-namespace NovaSeoEntity\Tests;
+namespace NovaSeoEntity\Tests\Models;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use NovaSeoEntity\Tests\Fixtures\Models\Post;
 use NovaSeoEntity\Tests\Fixtures\Models\PostNotModel;
+use NovaSeoEntity\Tests\TestCase;
 
 class HasSeoEntityTest extends TestCase
 {
-    use RefreshDatabase;
-
     /** @test */
     public function has_relation()
     {
         /** @var Post $post */
-        $post = Post::newFake()->create();
+        $post = Post::factory()->create();
 
         $this->assertNull($post->seo_info);
 
@@ -41,7 +39,7 @@ class HasSeoEntityTest extends TestCase
     public function get_new_instance_seo_value_for()
     {
         /** @var Post $post */
-        $post = Post::newFake()->create();
+        $post = Post::factory()->create();
 
         $this->assertNull($post->seo_info);
 
@@ -57,7 +55,7 @@ class HasSeoEntityTest extends TestCase
     public function get_seo_field_value()
     {
         /** @var Post $post */
-        $post = Post::newFake()->create();
+        $post = Post::factory()->create();
 
         $this->assertNull($post->seo_info);
 

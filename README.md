@@ -38,7 +38,7 @@ php artisan vendor:publish --provider="NovaSeoEntity\ServiceProvider" --tag="lan
 php artisan make:migration create_cms_seo_table
 ```
 
-```injectablephp
+```php
 public function up()
 {
     Schema::create(config('nova-seo-entity.table'), function (Blueprint $table) {
@@ -54,13 +54,10 @@ public function down()
 
 ### Amend models
 
-```injectablephp
-use NovaSeoEntity\Contracts\WithSeoEntity;
-use NovaSeoEntity\Models\Traits\HasSeoEntity;
-
-class Article extends Model extends WithSeoEntity
+```php
+class Article extends Model extends \NovaSeoEntity\Contracts\WithSeoEntity
 {
-    use HasSeoEntity;
+    use \NovaSeoEntity\Models\Traits\HasSeoEntity;
     // ...
     
     /**
@@ -84,7 +81,7 @@ class Article extends Model extends WithSeoEntity
 
 Add new field to your resource
 
-```injectablephp
+```php
 MorphOne::make('SEO', 'seo_info', SEOInfo::class),
 ```
 
@@ -92,7 +89,7 @@ MorphOne::make('SEO', 'seo_info', SEOInfo::class),
 
 You can add resource from package or extend it in your app.
 
-```injectablephp
+```php
 // NovaServiceProvider.php
 use NovaSeoEntity\Nova\Resources\SEOInfo;
 
@@ -143,7 +140,10 @@ protected function resources() {
 ```php
 $article = Article::find($articleId);
 
-$article?->seo_info_forced?->seoPrepare();
+// Get seoinfo with default value
+$article?->seo_info_forced->seoPrepare();
+
+// Get seoinfo without defaults
 // $article?->seo_info?->seoPrepare();
 ```
 

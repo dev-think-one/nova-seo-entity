@@ -130,8 +130,10 @@ class SEOInfo extends NovaResource
         if ($request instanceof NovaRequest
              && $request->viaRelationship()
              && $request->isCreateOrAttachRequest()) {
+            /** @var class-string<Model> $classString */
+            $classString = $request->newViaResource()->model();
             /** @var Model $viaModel */
-            $viaModel = $request->newViaResource()->model()::find($request->viaResourceId);
+            $viaModel = $classString::find($request->viaResourceId);
 
             return $this->cachedViaModel = $viaModel;
         }

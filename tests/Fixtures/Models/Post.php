@@ -2,14 +2,16 @@
 
 namespace NovaSeoEntity\Tests\Fixtures\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 use NovaSeoEntity\Contracts\WithSeoEntity;
 use NovaSeoEntity\Models\Traits\HasSeoEntity;
+use NovaSeoEntity\Tests\Fixtures\Factories\PostFactory;
 
 class Post extends Model implements WithSeoEntity
 {
     use HasSeoEntity;
+    use HasFactory;
 
     protected $table = 'posts';
 
@@ -25,12 +27,8 @@ class Post extends Model implements WithSeoEntity
         return 'Overridden: ' . $value;
     }
 
-
-    public static function newFake()
+    protected static function newFactory(): PostFactory
     {
-        return new static([
-            'title'   => 'Title ' . Str::random(),
-            'content' => implode(' ', array_fill(0, 50, Str::random())),
-        ]);
+        return PostFactory::new();
     }
 }
