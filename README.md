@@ -55,7 +55,7 @@ public function down()
 ### Amend models
 
 ```php
-class Article extends Model extends \NovaSeoEntity\Contracts\WithSeoEntity
+class Article extends Model implements \NovaSeoEntity\Contracts\WithSeoEntity
 {
     use \NovaSeoEntity\Models\Traits\HasSeoEntity;
     // ...
