@@ -7,3 +7,4 @@ coverage
 /.phpunit.cache
 .idea
 .php-cs-fixer.cache
+/auth.json
